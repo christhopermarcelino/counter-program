@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Counter Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gray-900 flex justify-center items-center h-screen text-white"
+  >
+    <main
+      class="bg-gray-800 mx-8 md:mx-0 w-full md:w-3/4 lg:w-1/2 h-1/3 flex flex-col justify-center space-y-12"
+    >
+      <h1 class="text-center font-bold text-4xl">Counter Program</h1>
+      <h4 id="counter-value" class="text-4xl text-center">0</h4>
+      <div class="flex justify-center space-x-8">
+        <button
+          type="button"
+          id="btn-subtract"
+          class="rounded-md px-4 flex justify-center items-center py-0 bg-white text-black text-2xl"
+        >
+          -
+        </button>
+        <button
+          type="button"
+          id="btn-add"
+          class="rounded-md px-4 flex justify-center items-center py-0 bg-white text-black text-2xl"
+        >
+          +
+        </button>
+      </div>
+    </main>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        const counterValue = $("#counter-value");
+        $("#btn-add").on("click", function (e) {
+          counterValue.text(parseInt(counterValue.text()) + 1);
+        });
+        $("#btn-subtract").on("click", function () {
+          if (parseInt(counterValue.text()) > 0)
+            counterValue.text(parseInt(counterValue.text()) - 1);
+        });
+      });
+    </script>
+  </body>
+</html>
